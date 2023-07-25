@@ -47,7 +47,7 @@ func HandleSalesforceCodeRequest(codeRequest *types.SalesforceCodeRequest) (err 
 	if err != nil {
 		return
 	}
-	body := fmt.Sprintf("Your Support PIN for Case %s is %s", codeRequest.CaseNumber, codeRequest.Code)
+	body := fmt.Sprintf("Your Support PIN for Case %s is %s. Reply STOP to opt out.", codeRequest.CaseNumber, codeRequest.Code)
 	twilioClient := twilio.NewRestClientWithParams(twilio.ClientParams{
 		Username: env.TwilioAccountSID,
 		Password: env.TwilioAuthToken,
